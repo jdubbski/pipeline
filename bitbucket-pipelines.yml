@@ -1,0 +1,6 @@
+image:  atlassian/default-image:latest
+pipelines:
+   default:
+     - step:
+         script:
+           - ssh cicd@xx.xx.xx.xx docker exec <container-id> bash -c ./deploy.sh 
