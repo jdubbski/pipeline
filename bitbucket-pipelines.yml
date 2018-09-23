@@ -1,6 +1,10 @@
 image:  atlassian/default-image:latest
 pipelines:
-   default:
+   branches:
+     development:
      - step:
+         name: Deploy to development
+         deployment: test
          script:
-           - ssh cicd@xx.xx.xx.xx docker exec <container-id> bash -c ./deploy.sh 
+           - ssh cicd@xx.xx.xx.xx docker exec <container-id> bash -c ./deploy.sh
+
