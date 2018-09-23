@@ -1,4 +1,4 @@
-##### Bitbucket Pipeline CI/CD Process
+## Bitbucket Pipeline CI/CD Process
  
 
 This will outline configuration steps needed in order to configure pipeline
