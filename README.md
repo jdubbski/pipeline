@@ -26,9 +26,16 @@
 
 $ docker run -it --volume=/Users/myUserName/code/localDebugRepo:/localDebugRepo --workdir="/localDebugRepo" --memory=4g --memory-swap=4g --memory-swappiness=0 --entrypoint=/bin/bash atlassian/default-image
 
-  This will help you determine if there are any issues memory wise that could be attributing to any of your problems
+  This will help you determine if there are any issues memory wise that could be attributing to any of your problems.  If you notice, memory is your issue, you can add 'size: 2x' to your pipeline.yaml file.
 
 9.  My next step in this process was to create a script on the root directory of the Apache container.  There are only 3 steps, cd into /var/application, do a git pull origin development and then perform drush command: 'drush -r $DOCROOT cr'... initially this was part of bitbucket-pipeline.yaml file but appeared to not do multiple commands well, even though strung together with &&. see repository for simple deploy.sh script.  of course make sure this is executable: chmod +x
+^^ this is probably due to following from bitbucket pipeline documentation:
+The script for a step does not support a multi-line string yet. Please provide a list of commands
+https://confluence.atlassian.com/bitbucket/troubleshooting-bitbucket-pipelines-792298903.html
+
+
+pending steps:
+bitbucket-pipeline should be triggered by specific branch - development.
 
 
 
