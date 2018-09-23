@@ -1,4 +1,14 @@
- This will outline configuration steps needed in order to configure pipeline
+### Bitbucket Pipeline CI/CD Process
+ 
+
+This will outline configuration steps needed in order to configure pipeline
+
+
+Before you begin, it goes without saying that before you can automate anything, you must:
+
+- fully understand the manual deployment process
+- communicate with developers, understand what testing they currently do, what tools do they use, what would they like to use
+- communicate with QA team and get same answers to questions above
  
 
 
@@ -35,7 +45,15 @@ https://confluence.atlassian.com/bitbucket/troubleshooting-bitbucket-pipelines-7
 
 
 pending steps:
-bitbucket-pipeline should be triggered by specific branch - development.
+
+bitbucket-pipeline should be triggered by specific branch - development.  DONE
+add deployment key work to yaml file to keep track of all deployments.  DONE
+when adding this to actual environment, the ssh command will need to tunnel thru bastion.
+add automate testing using Gulp v3/4
+add browserstack plugin
+add automated QA
+
+
 
 
 
