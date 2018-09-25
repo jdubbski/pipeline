@@ -23,7 +23,7 @@ Before you begin, it goes without saying that before you can automate anything, 
   4. For this use case, we will be using SSH keys to connect to the Rancher instance which is running the multiple docker containers.
   
   5. Create a cicd username on the Rancher instance. either create a keypair on instance or create thru bitbucket UI and apply the public
-     key to authorized_keys file on the instance.
+     key to authorized_keys file on the instance.  Also give this non-root cicd user the ability to run docker commands: sudo usermod -aG docker cicd.
   
   6. On the same 'SSH keys' settings screen, enter host address of the rancher instance you will connect to, and click 'Fetch' to get
      the host's fingerprint.  This will prevent the host from getting the prompt where it expects a 'yes' response when initially connecting.
