@@ -39,16 +39,21 @@ $ docker run -it --volume=/Users/myUserName/code/localDebugRepo:/localDebugRepo 
 ```
   This will help you determine if there are any issues memory wise that could be attributing to any of your problems.  If you notice, memory is your issue, you can add 'size: 2x' to your pipeline.yaml file.
 
-  9.  My next step in this process was to create a script on the root directory of the Apache container.  There are only 3 steps:
+  9.  My next step in this process was to create a 'deploy' script on the root directory of the Apache container.  There are only 3 steps:
+
 ```
+echo "Deploy script started"
 cd /var/application
 git pull origin development 
 drush -r $DOCROOT cr
+echo "Deploy script finished"
+
 ```
-initially this was part of bitbucket-pipeline.yaml file but appeared to not do multiple commands well, even though strung together with &&. see repository for simple deploy.sh script.  of course make sure this is executable: chmod +x
-^^ this is probably due to following from bitbucket pipeline documentation:
-The script for a step does not support a multi-line string yet. Please provide a list of commands
+initially this was part of bitbucket-pipeline.yaml file but appeared to not do multiple commands well, even though strung together with &&. 
+this is probably due to following from bitbucket pipeline documentation:
+'The script for a step does not support a multi-line string yet. Please provide a list of commands'
 https://confluence.atlassian.com/bitbucket/troubleshooting-bitbucket-pipelines-792298903.html
+see repository for simple deploy.sh script.  of course make sure this is executable: chmod +x
 
 
 pending steps:
