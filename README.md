@@ -15,7 +15,13 @@ Before you begin, it goes without saying that before you can automate anything, 
   1. Go to your bitbucket repository, select 'Pipelines', Enable and select the Docker template.
   
   2. Enter code for bitbucket-pipeline.yaml file and commit.
-  
+
+    - Some of the critical keywords in this file will be: default vs branch, depending on if this pipeline will run on every git push or only a push of a particular branch. 
+    - Any docker image can be chosen to run this code from.  The default is atlassian/default-image.  If a few items need to be installed/configured prior, think about using your own prepackaged docker image instead.  
+    - Add 'deployment' keyword in this file to keep track of all deployments thru bitbucket ui.  Valid values are: 'test, staging, production'.
+
+    - Be sure to add 'name' keyword for each step for clarification.
+ 
   3. Go to Repository Settings, scroll down to pipeline settings at the bottom, enter in any environment variables that 
      may be needed.  Keep in mind, you do NOT want to pass in critical information in your code. This information is visible to anyone that 
      has access to your repository. USE Envrionment Variables, if you need to.
