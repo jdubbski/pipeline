@@ -8,7 +8,7 @@ Before you begin, it goes without saying that before you can automate anything, 
 
 - **fully understand** the **manual** deployment process
 - **communicate** with developers, understand what testing they currently do, what tools do they use, what would they like to use
-- **communicate** with QA team and get same answers to questions above
+- **communicate** with QA team and get answers to questions above
  
 
 
