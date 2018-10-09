@@ -45,12 +45,13 @@ $ docker run -it --volume=/Users/myUserName/code/localDebugRepo:/localDebugRepo 
 ```
   This will help you determine if there are any issues memory wise that could be attributing to any of your problems.  If you notice, memory is your issue, you can add 'size: 2x' to your pipeline.yaml file.
 
-  9.  My next step in this process was to create a 'deploy' script on the root directory of the Apache container.  There are only 3 steps:
+  9.  My next step in this process was to create a 'deploy' script on the root directory of the Apache container.  There are only 4 steps:
 
 ```
 echo "Deploy script started"
 cd /var/application
 git pull origin development 
+drush -r $DOCROOT cim
 drush -r $DOCROOT cr
 echo "Deploy script finished"
 
@@ -68,13 +69,14 @@ pending steps:
 
 - add deployment key work to yaml file to keep track of all deployments.  DONE
 
-- when adding this to actual environment, the ssh command will need to tunnel thru bastion.
+- when adding this to actual environment, the ssh command will need to tunnel thru bastion. DONE
+  provided ssh access from only bitbucket ip source.
 
-- add automate testing using Gulp v3/4
+- add automated smoke test
 
-- add browserstack plugin
+- add integrated tests
 
-- add automated QA
+- add automated QA test
 
 
 

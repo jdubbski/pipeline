@@ -1,7 +1,6 @@
 image:  atlassian/default-image:latest
 pipelines:
-   branches:
-     development:
+  default:    
      - step:
          name: Deploy to development
          deployment: test
